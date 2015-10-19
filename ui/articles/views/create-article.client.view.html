@@ -1,0 +1,49 @@
+<section ng-controller="ArticlesController">
+
+		{{error}}
+		<form ng-submit="create()" novalidate>
+	<div style="float: right;">
+  <div class="box-inner">
+    <div class="box-header well" data-original-title="">
+      <h2><i class="glyphicon glyphicon-file"></i> New Article</h2>
+      <div class="box-icon">
+      
+        <button class="btn btn-round btn-primary btn-xs"  type="submit"><i class="glyphicon glyphicon-ok"></i> Submit </button>
+      </div>
+    </div>
+
+    <div class="box-content" >
+		<div>
+			<label for="title">Title</label>	
+			<div>
+		<input type="text" data-ng-model="title" id="title" placeholder="Title" required>
+			</div>
+		</div>
+		<div>
+			<label for="content">Content</label>
+		<div>
+			<textarea ck-editor data-ng-model="content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+		</div>
+		<label for="tag">Tags</label>	
+		<div>
+		<input type="text" data-ng-model="tags" id="tags" placeholder="tags" required>
+			</div>
+			<label for="category">Category</label>	
+		<div>
+		<input type="text" data-ng-model="category" id="category" placeholder="category" required>
+		</div>
+		</div>
+		<div ng-show="error">
+			<strong ng-bind="error"></strong>
+		</div>
+	
+    </div>
+  </div>
+</div>
+
+
+
+
+		</form>
+	
+</section>

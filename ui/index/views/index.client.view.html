@@ -1,0 +1,72 @@
+
+
+<section ng-controller="IndexController" ng-init="find()">
+	<div ng-show="error" class="alert alert-danger" ng-click="clearAlert()">
+	  <strong>ERROR!</strong> {{error}}
+	</div>
+	<div ng-show="message" class="alert alert-success" ng-click="clearAlert()">
+	  <strong>Success!</strong> {{message}}
+	</div>
+<table class="table active" width="100%">
+<thead>
+	<tr>
+		<th>name</th>
+		<th>email</th>
+		<th>address</th>
+		<th>Mobile</th>
+		<th>OPTIONS</th>
+	</tr>
+
+</thead>
+<tbody>
+
+
+
+    <tr ng-repeat="user in users">
+        <td>
+            <div ng-hide="editingData[user.ID]">{{user.name | uppercase}}</div>
+            <div ng-show="editingData[user.ID]"><input type="text" class="form-control" ng-model="user.name" /></div>
+        </td>
+        <td>
+            <div ng-hide="editingData[user.ID]">{{user.email}}</div>
+            <div ng-show="editingData[user.ID]"><input type="text" class="form-control" ng-model="user.email" /></div>
+        </td>
+        <td>
+            <div ng-hide="editingData[user.ID]">{{user.address}}</div>
+            <div ng-show="editingData[user.ID]">
+                <textarea  class="form-control" ng-model="user.address"></textarea>
+            </div>
+        </td>
+        <td>
+            <div ng-hide="editingData[user.ID]">{{user.mobile}}</div>
+            <div ng-show="editingData[user.ID]"><input type="text" class="form-control" ng-model="user.mobile" /></div>
+        </td>
+        <td>
+            <a type="button" class="btn btn-primary"ng-hide="editingData[user.ID]" ng-click="modify(user)">Modify</a>
+            <a type="button" class="btn btn-danger"ng-hide="editingData[user.ID]" ng-click="delete(user)">Delete</a>
+            <a type="button" class="btn btn-success" ng-show="editingData[user.ID]" ng-click="updateTable(user)">Save</a>
+            <a type="button" class="btn btn-danger" ng-show="editingData[user.ID]" ng-click="cancelEdit(user)">Cancel</a>
+        </td>
+    </tr>
+    <tr>
+    		<td><input type="text" class="form-control" ng-model="newUser.name" /></td>
+    		<td><input type="text" class="form-control" ng-model="newUser.email" /></td>
+    		<td><textarea  class="form-control" ng-model="newUser.address"></textarea></td>
+    		<td><input type="text" class="form-control" ng-model="newUser.mobile" /></td>
+    		<td>
+    			<a type="button" class="btn btn-success" ng-click="create(newUser)">ADD</a>
+    		</td>
+    </tr>	
+</tbody>
+
+</table>
+
+
+</section>
+
+
+
+
+
+
+

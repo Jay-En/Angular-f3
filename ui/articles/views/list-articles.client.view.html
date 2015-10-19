@@ -1,0 +1,28 @@
+<section ng-controller="ArticlesController" ng-init="find()">
+
+	{{error}}
+
+	<div ng-repeat="article in articles">
+	<div class="box col-xs-12" style="float: right;">
+  		<div class="box-inner">
+    		<div class="box-header well" data-original-title="">
+      			<h2><i class="glyphicon glyphicon-file"></i> 
+      			<a ng-href="#!/articles/{{article._id}}" ng-bind="article.title"></a>
+      			<small>by</small> <small ng-bind="article.creator.fullName"></small>
+      			</h2>
+      				<div class="box-icon">
+      				</div>
+		    </div>
+    		<div class="box-content" >
+			<div data-ng-bind-html="article.content"></div>
+
+
+	</div>
+			<div data-ng-hide="!articles || articles.length"> No articles yet, why don't you <a href="/#!/articles/create">create one</a>
+			</div>
+	
+    </div>
+  </div>
+</div>
+
+</section>

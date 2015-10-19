@@ -1,0 +1,48 @@
+
+      <section ng-controller="ArticlesController" ng-init="findOne()">
+		<form data-ng-submit="update()" novalidate>
+
+<div class="box col-xs-12" style="float: right;">
+  <div class="box-inner">
+    <div class="box-header well" data-original-title="">
+      <h2><i class="glyphicon glyphicon-file"></i> Edit Article</h2>
+      <div class="box-icon">
+      
+        <button class="btn btn-round btn-primary btn-xs" type="submit" value="Update"><i class="glyphicon glyphicon-ok"></i> Update </button >
+      </div>
+    </div>
+    <div class="box-content" >
+
+			<div>
+				<label for="title">Title</label>
+					<div>
+						<input type="text" ng-model="article.title" id="title" placeholder="Title" required>
+					</div>
+			</div>
+			<div>
+				<label for="content">Content</label>
+				<div>
+					<textarea ng-model="article.content" id="content" cols="30" rows="10" placeholder="Content"  ck-editor></textarea>
+				</div>
+		<label for="tag">Tags</label>	
+		<div>
+		<input type="text" data-ng-model="article.tags" id="tags" placeholder="tags" required>
+			</div>
+			<label for="category">Category</label>	
+		<div>
+		<input type="text" data-ng-model="article.category" id="category" placeholder="category" required>
+		</div>
+			</div>
+				<div>
+					<p>
+
+					</p>
+				</div>
+				<div ng-show="error">
+					<strong ng-bind="error"></strong>
+				</div>
+    </div>
+  </div>
+</div>
+</form >
+</section>
